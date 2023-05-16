@@ -5,7 +5,7 @@
 	<key>PixabayUrl</key>
 	<string>https://pixabay.com/api/?key=</string>
 	<key>PixabayApiKey</key>
-	<string>19784026-dbaa476e65ddbd8224782326b</string>
+	<string></string>
 	<key>PixabayImageType</key>
 	<string>image_type=photo</string>
 	<key>PixabayResultsPerPage</key>

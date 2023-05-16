@@ -9,6 +9,6 @@
 <img src="screenshots/5.png" width="50%">
 <img src="screenshots/6.png" width="50%">
 
-need to insert api key 
+##need to insert api key
+<img src="screenshots/7.png" width="70%">
 
-- [main code](https://github.com/looloolalaa/Server-Interaction-Test/blob/master/URL_Test/ContentView.swift)
