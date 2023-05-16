@@ -31,7 +31,7 @@ public struct PixabayImage: Decodable, Identifiable {
     public var tags: String
     public var downloads: Int
     public var user: String
-    public var favorites: Int
+//    public var favorites: Int
     public var imageSize: Int
     public var previewWidth: Int
     public var userImageURL: String
@@ -57,7 +57,7 @@ public struct PixabayImage: Decodable, Identifiable {
         case tags
         case downloads
         case user
-        case favorites
+//        case favorites
         case imageSize
         case previewWidth
         case userImageURL
@@ -82,7 +82,7 @@ public struct PixabayImage: Decodable, Identifiable {
         tags = ""
         downloads = 0
         user = ""
-        favorites = 0
+//        favorites = 0
         imageSize = 0
         previewWidth = 0
         userImageURL = imageName

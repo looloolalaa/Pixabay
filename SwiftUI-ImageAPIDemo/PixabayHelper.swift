@@ -43,15 +43,46 @@ class PixabayHelper: ObservableObject {
         // Use the dataTaskPublisher(for:) Combine extension on URLSession to request data asynchronously
         
         URLSession.shared.dataTask(with: URLRequest(url: URL(string: pixabayUrl)!)){ data, response, error in
+            
             if let data = data{
+                
+//                JSON 디코드 에러 확인
+//                ex) favorite 키가 없어서 에러
+//                do {
+//                    let decodedResponse = try JSONDecoder().decode(PixabayData.self, from: data)
+//                    DispatchQueue.main.async {
+////                      self.users = decodedResponse.users
+//                     }
+//                  } catch let DecodingError.dataCorrupted(context) {
+//                      print(context)
+//                  } catch let DecodingError.keyNotFound(key, context) {
+//                      print("Key '\(key)' not found:", context.debugDescription)
+//                      print("codingPath:", context.codingPath)
+//                  } catch let DecodingError.valueNotFound(value, context) {
+//                      print("Value '\(value)' not found:", context.debugDescription)
+//                      print("codingPath:", context.codingPath)
+//                  } catch let DecodingError.typeMismatch(type, context)  {
+//                      print("Type '\(type)' mismatch:", context.debugDescription)
+//                      print("codingPath:", context.codingPath)
+//                  } catch {
+//                      print("error: ", error)
+//                  }
+//                  return
+                
+//                print(data.debugDescription)
                 if let decodedResponse = try? JSONDecoder().decode(PixabayData.self, from: data){
+
+//                    print("decode success")
+
                     DispatchQueue.main.async {
                         self.pixabayData = decodedResponse
                         self.imageData = self.pixabayData == nil ? [PixabayImage(imageName: "OwlSmall")] : self.pixabayData!.hits
                     }
-                    
+
                     return
                 }
+
+//                print("**", data, "decode fail")
             }
             
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
